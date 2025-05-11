@@ -1,28 +1,107 @@
-# Software Testing 2025: Exercise block 02 
+Petclinic UI Testing Suite
 
-**Instructions**
+This repository contains a series of UI test implementations for the Spring Petclinic Sample Application found " https://github.com/spring-projects/springpetclinic?tab=readme-ov-file#run-petclinic-locally" using various testing approaches and frameworks. Each subfolder corresponds to a different assignment or evolution stage:
 
-* Use this repository as template for preparing and submitting the exercise. Start by cloning/downloading the entire repository. 
-* Each assignment part of the exercise is represented by a separate folder. Do not change folder names.
-* Follow the instructions specified in the assignment sheet available via TUWEL to complete the individual assignments.
-* Your results for each assignment must be stored in the corresponding folder. Retain to the provided structure.
-* To provide optional remarks/explanations for the tutors, create a readme.txt file in the assignment folder.  
-* Submission: Pack the entire repository as zip archive and upload it via the submission link given on TUWEL in due time.
+ Project Structure
 
-The exercise consists of following modules:
+.
+├── 01-CaptureReplayTests/       # Assignment 1: Selenium IDE (Capture & Replay)
+├── 02-SeleniumTests/            # Assignment 2: Manual Selenium WebDriver tests (JUnit)
+├── 03-PageObjectTests/          # Assignment 3: Selenium tests with Page Object Model
+├── 04-CucumberTests/            # Assignment 4: BDD testing using Cucumber + Selenium
+├── 05-PlaywrightTests/          # Assignment 5: Migrated tests using Playwright for Java
+└── README.md                    # This file
 
-## 01-CaptureReplay
-Store the Selenium IDE project in this folder.
-See instructions in the assignment sheet available via TUWEL.
 
-## 02-SeleniumTests 
-See instructions in the assignment sheet available via TUWEL.
+Java 11 or higher
 
-## 03-PageObjectTests
-See instructions in the assignment sheet available via TUWEL.
+Maven
 
-## 04-CucumberTests
-See instructions in the assignment sheet available via TUWEL.
+Chrome browser (for Selenium & Playwright)
 
-## 05-PlaywrightTests
-See instructions in the assignment sheet available via TUWEL.
+Spring Petclinic backend running at: http://localhost:8080/
+
+Start the app locally:
+
+cd spring-petclinic
+mvn package
+java -jar target/spring-petclinic-*.jar
+
+Assignment 01: Selenium IDE (Capture & Replay)
+
+Folder: 01-CaptureReplayTests/
+
+Record UI flows using Selenium IDE browser extension.
+
+ Assignment 02: Selenium Tests (JUnit)
+
+Folder: 02-SeleniumTests/
+
+Write Selenium tests manually using Java and JUnit 5.
+
+Use WebDriverManager for setup.
+
+Example tests: testAddOwner, testEditOwner, testFindOwner
+
+Run with:
+
+mvn test
+
+Assignment 03: Page Object Model
+
+Folder: 03-PageObjectTests/
+
+Refactor Selenium tests to use the Page Object Pattern.
+
+Each page is represented by a class (AddOwnerPage, OwnerPage, etc.)
+
+Tests are cleaner and easier to maintain.
+
+Assignment 04: BDD with Cucumber
+
+Folder: 04-CucumberTests/
+
+Define features using Gherkin (.feature files)
+
+Implement step definitions in Java using Selenium Page Objects
+
+Run with:
+
+mvn test
+
+Report:
+
+target/cucumber-reports.html
+
+Assignment 05: Playwright for Java
+
+Folder: 05-PlaywrightTests/
+
+Migrate UI tests from Selenium to Playwright (Java bindings)
+
+Replace WebDriver with Playwright's Browser, Page, etc.
+
+Example tests:
+
+AddOwnerPlaywrightTest
+
+FindOwnerPlaywrightTest
+
+EditOwnerPlaywrightTest
+
+Run with:
+
+mvn test
+
+Notes
+
+Each test suite is independent.
+
+Common base: Spring Petclinic must be running at localhost:8080.
+
+Tests use Chrome in non-headless mode (headless can be enabled in setup).
+
+Author
+
+Developed as part of Software Testing coursework.
+
